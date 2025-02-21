@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning Section - ZariWeb</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(45deg, #1a1a1a, #333);
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        header, footer {
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        header { top: 0; }
+        footer { bottom: 0; }
+
+        .main-content {
+            flex: 1;
+            padding: 80px 20px 60px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+        }
+
+        .container {
+            max-width: 1000px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            text-align: justify;
+            backdrop-filter: blur(10px);
+        }
+
+        .learning-section h2 {
+            color: #ff9800;
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .learning-section p, .learning-section ul {
+            font-size: 1.2em;
+            line-height: 1.6;
+        }
+
+        .resource-links a {
+            color: #ff9800;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .resource-links a:hover {
+            text-decoration: underline;
+            color: #fff;
+        }
+
+        .cta button {
+            background: #ff9800;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            color: #fff;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .cta button:hover {
+            background: #e68900;
+            transform: scale(1.05);
+        }
+
+        /* 3D Effect */
+        canvas { position: absolute; top: 0; left: 0; z-index: -1; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>LEARN</h1>
+    </header>
+    <div class="main-content">
+        <div class="container">
+            <div class="learning-section">
+                <h2>Learning Section</h2>
+                <p>Welcome to the learning section of ZariWeb. Here, you will find resources on African spirituality, culture, and traditions.</p>
+                <div class="resource-links">
+                    <a href="#">Understanding Ancestral Worship</a>
+                    <a href="#">Cultural Ceremonies</a>
+                    <a href="#">Language Preservation</a>
+                </div>
+                <div class="cta">
+                    <button>Explore More Resources</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2025 ZARI. All rights reserved.</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script>
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.body.appendChild(renderer.domElement);
+
+        const geometry = new THREE.SphereGeometry(3, 32, 32);
+        const material = new THREE.MeshBasicMaterial({ color: 0xff9800, wireframe: true });
+        const sphere = new THREE.Mesh(geometry, material);
+        scene.add(sphere);
+
+        camera.position.z = 8;
+
+        function animate() {
+            requestAnimationFrame(animate);
+            sphere.rotation.x += 0.01;
+            sphere.rotation.y += 0.01;
+            renderer.render(scene, camera);
+        }
+        animate();
+    </script>
+</body>
+</html>

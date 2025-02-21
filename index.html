@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Back to My Roots - Sign In</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: url('background.jpg') no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            margin: 0;
+            overflow-y: auto; /* Ensure body can scroll */
+        }
+
+        header, footer {
+            background: rgb(0, 0, 0);
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        header {
+            top: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+        }
+
+        .header-content .dropdown {
+            margin-right: 20px;
+        }
+
+        footer {
+            bottom: 0;
+        }
+
+        .main-content {
+            flex: 1;
+            overflow-y: auto;
+            padding-top: 60px; /* Height of the header */
+            padding-bottom: 40px; /* Height of the footer */
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative; /* Add this line */
+            top: 0; /* Add this line */
+            margin-top: 60px; /* Add this line */
+            margin-bottom: 40px; /* Add this line */
+        }
+
+        .container {
+            background: rgb(110, 38, 14);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            width: 350px;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .btn {
+            width: 100%;
+            background: orange;
+            border: none;
+            padding: 10px;
+            font-size: 16px;
+            color: black;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: darkorange;
+        }
+
+        p {
+            margin-top: 10px;
+        }
+
+        a {
+            color: lightblue;
+            cursor: pointer;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background: linear-gradient(to right, gold, yellow, orange);
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            left: 50%; /* Adjust this to position the menu beside the button */
+            transform: translateX(-50%);
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown:hover .dropbtn {
+            background-color: #dd3f23;
+        }
+
+        .dropbtn {
+            background-color: #121520; /* Green background */
+            color: white;
+            padding: 20px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .dropbtn:hover {
+            background-color: #45a049; /* Darker green on hover */
+        }
+
+        .slideshow-container {
+            width: 100%;
+            max-width: 600px; /* Adjust max-width */
+            height: 0;
+            padding-bottom: 56.25%; /* Maintain a 16:9 aspect ratio */
+            position: relative;
+            text-align: center;
+            margin: 20px auto;
+            overflow: hidden;
+        }
+
+        .mySlides {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .mySlides img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="dropdown">
+                <button class="dropbtn">Menu</button>
+                <div class="dropdown-content">
+                    <a href="#">Home</a>
+                    <a href="#">Library</a>
+                    <a href="#">Register</a>
+                    <a href="#">Blog</a>
+                    <a href="#">Learn</a>
+                    <a href="#" onclick="logout()">Logout</a>
+                </div>
+            </div>
+            <a href="#"><img src="logo.png" alt="Back to My Roots" style="height: 80px;width: 110px; margin-left: 20px;"></a>
+        </div>
+    </header>
+    <div class="main-content">
+        <h2 style="text-align: center; color: rgb(255, 255, 255); margin-bottom: 10px;">ZARI - Zambia African Reborn Initiative</h2>
+        <p style="text-align: center; color: rgb(255, 255, 255); margin: 10px; max-width: 600px;">
+            At Zari, we believe in the power of our roots. 
+            We are committed to preserving and celebrating 
+            the diverse traditions, stories, and knowledge that make Africa unique. 
+            Our mission is to create a harmonious blend of ancestral wisdom and modern education, 
+            ensuring a brighter future for generations to come.
+        </p>
+
+        <div class="slideshow-container">
+            <div class="mySlides fade">
+                <img src="heritage1.jpg">
+            </div>
+            <div class="mySlides fade">
+                <img src="heritage2.jpg">
+            </div>
+            <div class="mySlides fade">
+                <img src="heritage3.jpg">
+            </div>
+            <div class="mySlides fade">
+                <img src="heritage4.jpg">
+            </div>
+        </div>
+
+        <div class="container">
+            <h2 id="form-title">Sign In</h2>
+            <input type="text" id="username" placeholder="Enter Username">
+            <input type="password" id="password" placeholder="Enter Password">
+            <button class="btn" onclick="authenticate()">Login</button>
+            <p id="toggle-text">New user? <a onclick="toggleForm()">Sign Up</a></p>
+        </div>
+        <p style="margin-top: 20px; color: white; text-align: center; max-width: 600px;">
+            Imagine an Africa where our traditions, stories, and knowledge thrive alongside modern education. 
+            An Africa where our children learn not only math and science but also the wisdom of our ancestors. 
+            Join Zari today.
+        </p>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 ZARI. All rights reserved.</p>
+    </footer>
+
+    <script>
+        let isLogin = true;
+
+        function toggleForm() {
+            isLogin = !isLogin;
+            document.getElementById('form-title').innerText = isLogin ? "Sign In" : "Sign Up";
+            document.querySelector('.btn').innerText = isLogin ? "Login" : "Sign Up";
+            document.getElementById('toggle-text').innerHTML = isLogin ? 
+                "New user? <a onclick='toggleForm()'>Sign Up</a>" :
+                "Already have an account? <a onclick='toggleForm()'>Sign In</a>";
+        }
+
+        function authenticate() {
+            let username = document.getElementById('username').value;
+            let password = document.getElementById('password').value;
+
+            if (!username || !password) {
+                alert("Please fill in all fields.");
+                return;
+            }
+
+            if (isLogin) {
+                let storedPassword = localStorage.getItem(username);
+                if (storedPassword === password) {
+                    alert("Login successful! Welcome back.");
+                    localStorage.setItem('currentUser', username); // Remember the user
+                    window.location.href = "homepage.html"; // Redirect to homepage
+                } else {
+                    alert("Incorrect credentials or user not registered!");
+                }
+            } else {
+                if (localStorage.getItem(username)) {
+                    alert("Username already exists. Choose another.");
+                } else {
+                    localStorage.setItem(username, password);
+                    alert("Sign-up successful! You can now log in.");
+                    toggleForm();
+                }
+            }
+        }
+
+        function checkReturningUser() {
+            let currentUser = localStorage.getItem('currentUser');
+            if (currentUser) {
+                alert(`Welcome back, ${currentUser}!`);
+                window.location.href = "homepage.html"; // Redirect to homepage
+            }
+        }
+
+        function logout() {
+            localStorage.removeItem('currentUser');
+            alert("You have been logged out.");
+            window.location.href = "index.html"; // Redirect to login page
+        }
+
+        window.onload = checkReturningUser;
+
+        let slideIndex = 0;
+        showSlides();
+
+        function showSlides() {
+            let slides = document.getElementsByClassName("mySlides");
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";  
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) {slideIndex = 1}    
+            slides[slideIndex-1].style.display = "block";  
+            setTimeout(showSlides, 2000); // Change image every 2 seconds
+        }
+    </script>
+
+</body>
+</html>
